@@ -11,9 +11,10 @@ int main(){
     	printf("\n\t\tE\t\t\t\t\t\t\t\tR\n\n\tL\t\tT\t\t\t\t\t\tO\n\nE\t\t\t\tR\t\t\t\tT\n\n\t\t\t\t\tI\t\tA\n\n\t\t\t\t\t\tC");
 	    printf("\n\nPra você que não gosta de fazer contas de eletricidade, seus problemas acabaram!\nDigite a operação que o programa faz ela por você!");
 	    printf("\n\nQual operação voce quer fazer?\n\nOPERACOES COM CORRENTE CONTINUA\n\n1 - Assosciação de resistores em Paralelo\n2 - Assosciação de resistores em Serie\n3 - Divisor de Corrente\n4 - Transformação Triângulo-Estrela\n5 - Transformação Estrela-Triângulo\n6 - Divisor de Tensão\n\n");
-		printf("OPERAÇÕES COM CORRENTE ALTERNADA\n\n7 - Reatância Indutiva\n8 - Reatância Capacitiva\n9 - Impedância\nDigite aqui: ");
+		printf("OPERAÇÕES COM CORRENTE ALTERNADA\n\n7 - Cálculo de Reatância Indutiva\n8 - Cálculo de Reatância Capacitiva\n9 - Cálculo de Impedância\n\n");
+		printf("PROJETOS DE INSTALAÇÕES ELÉTRICAS\n0 - Cálculo do número e potência de tomadas por cômodo segundo a NBR 5410.\nDigite aqui: ");
 		scanf("%s", &operacao);
-		while(operacao != '1' && operacao != '2' && operacao != '3' && operacao != '4' && operacao != '5' && operacao != '6' && operacao != '7' && operacao != '8' && operacao != '9'){
+		while(operacao != '1' && operacao != '2' && operacao != '3' && operacao != '4' && operacao != '5' && operacao != '6' && operacao != '7' && operacao != '8' && operacao != '9' && operacao != '0'){
 		    printf("Valor invalido. Digite o valor de uma operacao, por favor: ");
 		    scanf("%s", &operacao);
 		}
@@ -142,6 +143,68 @@ int main(){
 				scanf("%lf", &ZXx);
 				Z = sqrt(pow(ZR, 2) + pow(ZXx, 2));
 				printf("O valor da impedância é %.2lf ohms", Z);
+			break;
+			case '0':
+				int comodo, Piluminacao=100, tomada, sair;
+				float area, perimetro;
+				printf("\n\nPara qual cômodo você quer?\n\n1 - Banheiro\n2 - Cozinha, copa, área de serviço, lavanderia ou afins\n3 - Varanda\n4 - Quarto, sala, dormitório ou afins\n5 - Outro cômodo\n\nDigite aqui: ");
+				scanf("%d", &comodo);
+				while (comodo < 1 || comodo > 5){
+					system("cls");
+					printf("Este número é inválido, favor digitar um número válido de cômodo:\n\n1 - Banheiro\n2 - Cozinha, copa, área de serviço, lavanderia ou afins\n3 - Varanda\n4 - Quarto, sala, dormitório ou afins\n5 - Outro cômodo\n\nDigite aqui: ");
+					scanf("%d", &comodo);
+				}
+				printf("\nDigite a área deste cômodo (em m²): ");
+				scanf("%f", &area);
+				printf("\nDigite o perímetro deste cômodo (em m): ");
+				scanf("%f", &perimetro);
+				system("cls");
+				if(area > 6){
+					Piluminacao += (area - 6) * 60;
+				}
+				printf("Resultados:\n\nA potência mínima de iluminação deve ser de %d VA\n\n", Piluminacao);
+				if(comodo == 1){
+					printf("Deve ser colocada, pelo menos, 1 tomada, dentro do próprio cômodo");
+				}
+				else if(comodo == 2){
+					tomada = perimetro/3.5;
+					printf("Deve(m) ser colocada(s), pelo menos, %d tomada(s)", tomada);
+				}
+				else if(comodo == 3){
+					if(area > 2){
+						printf("Deve ser colocada, pelo menos, 1 tomada, dentro do próprio cômodo (a não ser que a profundidade deste seja menor que 0,8 m)");
+					}
+					else{
+						printf("Deve ser colocada, pelo menos, 1 tomada, fora, mas próxima do cômodo (até 0,8 m distante da sua porta de acesso)");
+					}
+				}
+				else if(comodo == 4){
+					tomada = perimetro/5;
+					printf("Deve(m) ser colocada(s), pelo menos, %d tomada(s), dentro do próprio cômodo", tomada);
+				}
+				else if(comodo == 5){
+					if(area <= 2.25){
+						printf("Deve ser colocada, pelo menos, 1 tomada, fora, mas próxima do cômodo (até 0,8 m distante da sua porta de acesso)");
+					}
+					else if(area > 2.25 && area <= 6){
+						printf("Deve ser colocada, pelo menos, 1 tomada, dentro do próprio cômodo (a não ser que a profundidade deste seja menor que 0,8 m)");
+					}
+					else{
+						tomada = perimetro/5;
+						printf("Deve(m) ser colocada(s), pelo menos, %d tomada(s), dentro do próprio cômodo", tomada);
+					}
+				}
+				if(comodo == 1 || comodo == 2){
+					if(tomada > 3){
+						printf("\n\n3 tomadas tem que ter, no mínimo, 600 VA, e as outras devem ter 100 VA no mínimo");
+					}
+					else{
+						printf("\n\nAs tomadas devem ter, no mínimo, 600 VA cada");
+					}
+				}
+				else{
+					printf("\n\nAs tomadas devem ter, no mínimo, 100 VA cada");
+				}
 			break;
 	    }
 	    printf("\n\nO que você deseja fazer?\n0 - Sair\n1 - Fazer outra operação\nDigite aqui: ");
