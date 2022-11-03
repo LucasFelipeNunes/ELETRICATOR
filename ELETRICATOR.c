@@ -9,10 +9,10 @@ int main(){
     	char operacao;
     	setlocale(LC_ALL, "portuguese");
     	printf("\n\t\tE\t\t\t\t\t\t\t\tR\n\n\tL\t\tT\t\t\t\t\t\tO\n\nE\t\t\t\tR\t\t\t\tT\n\n\t\t\t\t\tI\t\tA\n\n\t\t\t\t\t\tC");
-	    printf("\n\nPra você que não gosta de fazer contas de eletricidade, seus problemas acabaram!\nDigite a operação que o programa faz ela por você!");
-	    printf("\n\nQual operação voce quer fazer?\n\nOPERACOES COM CORRENTE CONTINUA\n\n1 - Assosciação de resistores em Paralelo\n2 - Assosciação de resistores em Serie\n3 - Divisor de Corrente\n4 - Transformação Triângulo-Estrela\n5 - Transformação Estrela-Triângulo\n6 - Divisor de Tensão\n\n");
-		printf("OPERAÇÕES COM CORRENTE ALTERNADA\n\n7 - Cálculo de Reatância Indutiva\n8 - Cálculo de Reatância Capacitiva\n9 - Cálculo de Impedância\n\n");
-		printf("PROJETOS DE INSTALAÇÕES ELÉTRICAS\n0 - Cálculo do número e potência de tomadas por cômodo segundo a NBR 5410.\nDigite aqui: ");
+	    printf("\n\nPra vocÃª que nÃ£o gosta de fazer contas de eletricidade, seus problemas acabaram!\nDigite a operaÃ§Ã£o que o programa faz ela por vocÃª!");
+	    printf("\n\nQual operaÃ§Ã£o voce quer fazer?\n\nOPERACOES COM CORRENTE CONTINUA\n\n1 - AssosciaÃ§Ã£o de resistores em Paralelo\n2 - AssosciaÃ§Ã£o de resistores em Serie\n3 - Divisor de Corrente\n4 - TransformaÃ§Ã£o TriÃ¢ngulo-Estrela\n5 - TransformaÃ§Ã£o Estrela-TriÃ¢ngulo\n6 - Divisor de TensÃ£o\n\n");
+		printf("OPERAÃ‡Ã•ES COM CORRENTE ALTERNADA\n\n7 - CÃ¡lculo de ReatÃ¢ncia Indutiva\n8 - CÃ¡lculo de ReatÃ¢ncia Capacitiva\n9 - CÃ¡lculo de ImpedÃ¢ncia\n\n");
+		printf("PROJETOS DE INSTALAÃ‡Ã•ES ELÃ‰TRICAS\n0 - CÃ¡lculo do nÃºmero e potÃªncia de tomadas por cÃ´modo segundo a NBR 5410.\nDigite aqui: ");
 		scanf("%s", &operacao);
 		while(operacao != '1' && operacao != '2' && operacao != '3' && operacao != '4' && operacao != '5' && operacao != '6' && operacao != '7' && operacao != '8' && operacao != '9' && operacao != '0'){
 		    printf("Valor invalido. Digite o valor de uma operacao, por favor: ");
@@ -34,11 +34,11 @@ int main(){
 	        	}
 	    	    float resultadop;
 		        resultadop = 1/parcial;
-		        printf("O resistor resultante dessa junçao vale %.2f ohms", resultadop);
+		        printf("O resistor resultante dessa junÃ§ao vale %.2f ohms", resultadop);
 	        break;
 	        case '2':
 				int resistors, ys;
-	        	printf ("Digite a quantidade de resistores em série: ");
+	        	printf ("Digite a quantidade de resistores em sÃ©rie: ");
 	        	scanf("%d", &resistors);
 	        	float valors, resultados;
 	        	for(ys = 1;ys <= resistors;ys++){
@@ -46,18 +46,18 @@ int main(){
 		        	scanf("%f", &valors);
 	    	    	resultados += valors;
 	    		}
-	        	printf("O resistor resultante dessa junçao vale %.2f ohms", resultados);	        	
+	        	printf("O resistor resultante dessa junÃ§ao vale %.2f ohms", resultados);	        	
 	        break;
 	        case '3':
 		        float entrada, resistordc, resistoroposto, resultadodc;
 		        printf("Qual a corrente de entrada? ");
 		        scanf("%f", &entrada);
-		        printf("Qual o valor do resistor do qual você quer a corrente? ");
+		        printf("Qual o valor do resistor do qual vocÃª quer a corrente? ");
 		        scanf("%f", &resistordc);
 		        printf("Qual o valor do outro resistor pra onde a corrrente vai? ");
 		        scanf("%f", &resistoroposto);
 		        resultadodc = entrada * resistoroposto / (resistoroposto + resistordc);
-		        printf("A corrente no resistor é %.2f ampérs", resultadodc);
+		        printf("A corrente no resistor Ã© %.2f ampÃ©rs", resultadodc);
 		    break;
 	        case '4':
 	            char c [2], d [2], e [2];
@@ -77,9 +77,9 @@ int main(){
 	            Rc = Rce * Rcd /(Rcd + Rce + Rde);
 	            Rd = Rde * Rcd /(Rcd + Rce + Rde);
 	            Re = Rce * Rde /(Rcd + Rce + Rde);
-	            printf("\n\nO resultado de R%s é %.2f ohms", c, Rc);
-	            printf("\nO resultado de R%s é %.2f ohms", d, Rd);
-	            printf("\nO resultado de R%s é %.2f ohms", e, Re);
+	            printf("\n\nO resultado de R%s Ã© %.2f ohms", c, Rc);
+	            printf("\nO resultado de R%s Ã© %.2f ohms", d, Rd);
+	            printf("\nO resultado de R%s Ã© %.2f ohms", e, Re);
 	        break;
 	        case '5':
 	            char c2 [2], d2 [2], e2 [2];
@@ -100,71 +100,71 @@ int main(){
 		        Rcd2 = somaprodutos / Re2;
 		        Rce2 = somaprodutos / Rd2;
 		        Rde2 = somaprodutos / Rc2;
-		        printf("\nO valor de R%s%s é %f",c2,d2,Rcd2);
-		        printf("\nO valor de R%s%s é %f",c2,e2,Rce2);
-		        printf("\nO valor de R%s%s é %f",d2,e2,Rde2);
+		        printf("\nO valor de R%s%s Ã© %f",c2,d2,Rcd2);
+		        printf("\nO valor de R%s%s Ã© %f",c2,e2,Rce2);
+		        printf("\nO valor de R%s%s Ã© %f",d2,e2,Rde2);
 	        break;
 	        case '6':
 		        float tentrada, tresistordc, tresistoroposto, tresultadodc;
-		        printf("Qual a tensão de entrada? ");
+		        printf("Qual a tensÃ£o de entrada? ");
 		        scanf("%f", &tentrada);
-		        printf("Qual o valor do resistor do qual você quer a tensão? ");
+		        printf("Qual o valor do resistor do qual vocÃª quer a tensÃ£o? ");
 		        scanf("%f", &tresistordc);
-		        printf("Qual o valor do outro resistor pra onde a tensão vai? ");
+		        printf("Qual o valor do outro resistor pra onde a tensÃ£o vai? ");
 		        scanf("%f", &tresistoroposto);
 		        tresultadodc = tentrada * tresistoroposto / (tresistoroposto + tresistordc);
-		        printf("A tensão no resistor é %.2f volts", tresultadodc);
+		        printf("A tensÃ£o no resistor Ã© %.2f volts", tresultadodc);
 	        break;
 			case '7':
 				float frequenciaL, L;
 				double XL;
-				printf("Digite o valor da frequência (em Hertz): ");
+				printf("Digite o valor da frequÃªncia (em Hertz): ");
 				scanf("%f", &frequenciaL);
-				printf("Digite o valor da indutância (em Henry): ");
+				printf("Digite o valor da indutÃ¢ncia (em Henry): ");
 				scanf("%f", &L);
 				XL = 2 * M_PI * frequenciaL * L;
-				printf("O valor da reatância indutiva é %.2lf ohms", XL);
+				printf("O valor da reatÃ¢ncia indutiva Ã© %.2lf ohms", XL);
 			break;
 			case '8':
 				float frequenciaC, C;
 				double XC;
-				printf("Digite o valor da frequência (em Hertz): ");
+				printf("Digite o valor da frequÃªncia (em Hertz): ");
 				scanf("%f", &frequenciaC);
-				printf("Digite o valor da capacitância (em Farad): ");
+				printf("Digite o valor da capacitÃ¢ncia (em Farad): ");
 				scanf("%f", &C);
 				XC = 1 / (2 * M_PI * frequenciaC * C);
-				printf("O valor da reatância capacitiva é %.2lf ohms", XC);
+				printf("O valor da reatÃ¢ncia capacitiva Ã© %.2lf ohms", XC);
 			break;
 			case '9':
 				double ZXx, ZR, Z;
-				printf("Digite o valor da resistência (em ohms): ");
+				printf("Digite o valor da resistÃªncia (em ohms): ");
 				scanf("%lf", &ZR);
-				printf("Digite o valor da diferença entre as reatâncias (em ohms): ");
+				printf("Digite o valor da diferenÃ§a entre as reatÃ¢ncias (em ohms): ");
 				scanf("%lf", &ZXx);
 				Z = sqrt(pow(ZR, 2) + pow(ZXx, 2));
-				printf("O valor da impedância é %.2lf ohms", Z);
+				printf("O valor da impedÃ¢ncia Ã© %.2lf ohms", Z);
 			break;
 			case '0':
 				int comodo, Piluminacao=100, tomada, sair;
 				float area, perimetro;
-				printf("\n\nPara qual cômodo você quer?\n\n1 - Banheiro\n2 - Cozinha, copa, área de serviço, lavanderia ou afins\n3 - Varanda\n4 - Quarto, sala, dormitório ou afins\n5 - Outro cômodo\n\nDigite aqui: ");
+				printf("\n\nPara qual cÃ´modo vocÃª quer?\n\n1 - Banheiro\n2 - Cozinha, copa, Ã¡rea de serviÃ§o, lavanderia ou afins\n3 - Varanda\n4 - Quarto, sala, dormitÃ³rio ou afins\n5 - Outro cÃ´modo\n\nDigite aqui: ");
 				scanf("%d", &comodo);
 				while (comodo < 1 || comodo > 5){
 					system("cls");
-					printf("Este número é inválido, favor digitar um número válido de cômodo:\n\n1 - Banheiro\n2 - Cozinha, copa, área de serviço, lavanderia ou afins\n3 - Varanda\n4 - Quarto, sala, dormitório ou afins\n5 - Outro cômodo\n\nDigite aqui: ");
+					printf("Este nÃºmero Ã© invÃ¡lido, favor digitar um nÃºmero vÃ¡lido de cÃ´modo:\n\n1 - Banheiro\n2 - Cozinha, copa, Ã¡rea de serviÃ§o, lavanderia ou afins\n3 - Varanda\n4 - Quarto, sala, dormitÃ³rio ou afins\n5 - Outro cÃ´modo\n\nDigite aqui: ");
 					scanf("%d", &comodo);
 				}
-				printf("\nDigite a área deste cômodo (em m²): ");
+				printf("\nDigite a Ã¡rea deste cÃ´modo (em mÂ²): ");
 				scanf("%f", &area);
-				printf("\nDigite o perímetro deste cômodo (em m): ");
+				printf("\nDigite o perÃ­metro deste cÃ´modo (em m): ");
 				scanf("%f", &perimetro);
 				system("cls");
 				if(area > 6){
 					Piluminacao += (area - 6) * 60;
 				}
-				printf("Resultados:\n\nA potência mínima de iluminação deve ser de %d VA\n\n", Piluminacao);
+				printf("Resultados:\n\nA potÃªncia mÃ­nima de iluminaÃ§Ã£o deve ser de %d VA\n\n", Piluminacao);
 				if(comodo == 1){
-					printf("Deve ser colocada, pelo menos, 1 tomada, dentro do próprio cômodo");
+					printf("Deve ser colocada, pelo menos, 1 tomada, dentro do prÃ³prio cÃ´modo");
 				}
 				else if(comodo == 2){
 					tomada = perimetro/3.5;
@@ -172,46 +172,46 @@ int main(){
 				}
 				else if(comodo == 3){
 					if(area > 2){
-						printf("Deve ser colocada, pelo menos, 1 tomada, dentro do próprio cômodo (a não ser que a profundidade deste seja menor que 0,8 m)");
+						printf("Deve ser colocada, pelo menos, 1 tomada, dentro do prÃ³prio cÃ´modo (a nÃ£o ser que a profundidade deste seja menor que 0,8 m)");
 					}
 					else{
-						printf("Deve ser colocada, pelo menos, 1 tomada, fora, mas próxima do cômodo (até 0,8 m distante da sua porta de acesso)");
+						printf("Deve ser colocada, pelo menos, 1 tomada, fora, mas prÃ³xima do cÃ´modo (atÃ© 0,8 m distante da sua porta de acesso)");
 					}
 				}
 				else if(comodo == 4){
 					tomada = perimetro/5;
-					printf("Deve(m) ser colocada(s), pelo menos, %d tomada(s), dentro do próprio cômodo", tomada);
+					printf("Deve(m) ser colocada(s), pelo menos, %d tomada(s), dentro do prÃ³prio cÃ´modo", tomada);
 				}
 				else if(comodo == 5){
 					if(area <= 2.25){
-						printf("Deve ser colocada, pelo menos, 1 tomada, fora, mas próxima do cômodo (até 0,8 m distante da sua porta de acesso)");
+						printf("Deve ser colocada, pelo menos, 1 tomada, fora, mas prÃ³xima do cÃ´modo (atÃ© 0,8 m distante da sua porta de acesso)");
 					}
 					else if(area > 2.25 && area <= 6){
-						printf("Deve ser colocada, pelo menos, 1 tomada, dentro do próprio cômodo (a não ser que a profundidade deste seja menor que 0,8 m)");
+						printf("Deve ser colocada, pelo menos, 1 tomada, dentro do prÃ³prio cÃ´modo (a nÃ£o ser que a profundidade deste seja menor que 0,8 m)");
 					}
 					else{
 						tomada = perimetro/5;
-						printf("Deve(m) ser colocada(s), pelo menos, %d tomada(s), dentro do próprio cômodo", tomada);
+						printf("Deve(m) ser colocada(s), pelo menos, %d tomada(s), dentro do prÃ³prio cÃ´modo", tomada);
 					}
 				}
 				if(comodo == 1 || comodo == 2){
 					if(tomada > 3){
-						printf("\n\n3 tomadas tem que ter, no mínimo, 600 VA, e as outras devem ter 100 VA no mínimo");
+						printf("\n\n3 tomadas tem que ter, no mÃ­nimo, 600 VA, e as outras devem ter 100 VA no mÃ­nimo");
 					}
 					else{
-						printf("\n\nAs tomadas devem ter, no mínimo, 600 VA cada");
+						printf("\n\nAs tomadas devem ter, no mÃ­nimo, 600 VA cada");
 					}
 				}
 				else{
-					printf("\n\nAs tomadas devem ter, no mínimo, 100 VA cada");
+					printf("\n\nAs tomadas devem ter, no mÃ­nimo, 100 VA cada");
 				}
 			break;
 	    }
-	    printf("\n\nO que você deseja fazer?\n0 - Sair\n1 - Fazer outra operação\nDigite aqui: ");
+	    printf("\n\nO que vocÃª deseja fazer?\n0 - Sair\n1 - Fazer outra operaÃ§Ã£o\nDigite aqui: ");
 	    scanf("%s", &escolha);
 	    while(escolha != '0' && escolha != '1' && escolha != '2'){
-			printf("\n\nEssa opção não existe, por favor escolha outra opção.");
-	    	printf("\n\n\nO que você deseja fazer?\n0 - Sair\n1 - Fazer outra operação\nDigite aqui: ");
+			printf("\n\nEssa opÃ§Ã£o nÃ£o existe, por favor escolha outra opÃ§Ã£o.");
+	    	printf("\n\n\nO que vocÃª deseja fazer?\n0 - Sair\n1 - Fazer outra operaÃ§Ã£o\nDigite aqui: ");
 	    	scanf("%s", &escolha);
 	    }
 	    if(escolha == '1'){
